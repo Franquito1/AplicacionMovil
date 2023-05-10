@@ -12,13 +12,13 @@
         android:theme="@style/Theme.BetterChat"
         tools:targetApi="28">
         <activity
+            android:name=".PerfilUser"
+            android:exported="false" />
+        <activity
             android:name=".recuperarPassword"
             android:exported="false" />
         <activity
             android:name=".Activity_RegistroUsuario"
-            android:exported="false" />
-        <activity
-            android:name=".Activity_RegistrarUsuario"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
