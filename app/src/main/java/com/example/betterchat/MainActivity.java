@@ -82,7 +82,7 @@ public class    MainActivity extends AppCompatActivity{
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             finish();
-                            startActivity(new Intent(MainActivity.this,Activity_RegistroUsuario.class));
+                            startActivity(new Intent(MainActivity.this,Main.class));
                             Toast.makeText(MainActivity.this, "Iniciaste Sesion Correctamente.", Toast.LENGTH_SHORT).show();
                         }else{
                             Toast.makeText(MainActivity.this, "Error al Iniciar Sesion unu.", Toast.LENGTH_SHORT).show();
