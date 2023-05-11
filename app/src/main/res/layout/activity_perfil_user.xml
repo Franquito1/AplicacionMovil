@@ -7,6 +7,12 @@
     android:alpha="2"
     tools:context=".PerfilUser">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
+
     <ImageView
         android:id="@+id/img_user"
         android:layout_width="wrap_content"
