@@ -33,8 +33,9 @@
         android:layout_marginBottom="8dp"
         android:background="@null"
         android:ems="10"
+        android:hint="Contraseña"
         android:inputType="textPersonName"
-        android:hint="@string/ConstantContraseña"
+        android:password="true"
         android:textColor="#707070"
         app:layout_constraintBottom_toTopOf="@+id/textView_OlvidastePassword"
         app:layout_constraintEnd_toEndOf="parent"
@@ -107,6 +108,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logobetterchat" />
+
 
 
 

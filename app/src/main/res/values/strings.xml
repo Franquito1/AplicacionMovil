@@ -3,7 +3,7 @@
     <string name="ConstantEmail">Email</string>
     <string name="ConstanteUsuario">Usuario</string>
     <string name="ConstantContraseña">Contraseña</string>
-    <string name="ConstantContinuar">Continuar</string>
+    <string name="ConstantContinuar">REGISTRAR</string>
     <string name="ConstantConfirmaContraseña">Confirma tu Contraseña</string>
     <string name="ConstantInicioSesion">Iniciar Sesion</string>
     <string name="ConstantOlvidasteContraseña">¿Olvidaste tu Contraseña?</string>
