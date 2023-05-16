@@ -81,7 +81,7 @@ public class  loginActivity extends AppCompatActivity{
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             finish();
-                            startActivity(new Intent(loginActivity.this,Main.class));
+                            startActivity(new Intent(loginActivity.this,ChatsActivity.class));
                             Toast.makeText(loginActivity.this, "Iniciaste Sesion Correctamente.", Toast.LENGTH_SHORT).show();
                         }else{
                             Toast.makeText(loginActivity.this, "Error al Iniciar Sesion unu.", Toast.LENGTH_SHORT).show();

@@ -12,6 +12,12 @@
         android:theme="@style/Theme.BetterChat"
         tools:targetApi="28">
         <activity
+            android:name="com.example.betterchat.chats.Chat"
+            android:exported="false" />
+        <activity
+            android:name=".ChatsActivity"
+            android:exported="false" />
+        <activity
             android:name=".loginActivity"
             android:exported="false" />
         <activity

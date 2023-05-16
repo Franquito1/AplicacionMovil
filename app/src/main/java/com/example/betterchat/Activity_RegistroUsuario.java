@@ -3,6 +3,7 @@ package com.example.betterchat;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -43,9 +44,25 @@ public class Activity_RegistroUsuario extends AppCompatActivity {
         PasswordRegistro = findViewById(R.id.EditText_PasswordRegistro);
         RegistrarUsuario = findViewById(R.id.button_RegistrarUsuario);
 
+        ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setCancelable(false);
+        progressDialog.setMessage("Loading...");
+
+        //Verificando que no exista el usuario
+        if (MemoryData.getData(this).isEmpty()){
+
+            Intent intent = new Intent(Activity_RegistroUsuario.this,ChatsActivity.class);
+            intent.putExtra("correo", MemoryData.getData(this));
+            intent.putExtra("nombre",MemoryData.getName(this));
+            startActivity(intent);
+            finish();
+
+        }
+
         RegistrarUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                progressDialog.show();
                 String nombreUsuario = UsuarioRegistro.getText().toString().trim();
                 String EmailUsuario = mailRegistro.getText().toString().trim();
                 String PasswordUsuario = PasswordRegistro.getText().toString().trim();
@@ -54,17 +71,26 @@ public class Activity_RegistroUsuario extends AppCompatActivity {
                 if(nombreUsuario.isEmpty() && EmailUsuario.isEmpty() && PasswordUsuario.isEmpty()){
 
                     Toast.makeText(Activity_RegistroUsuario.this,"Complete todos los campos", Toast.LENGTH_SHORT).show();
+                    progressDialog.dismiss();
 
                 }else{
 
                     RegisterUser(nombreUsuario,EmailUsuario,PasswordUsuario);
 
                 }
+
             }
         });
     }
 
         private void RegisterUser(String nombreUsuario, String EmailUsuario, String PasswordUsuario){
+
+        // guardando correo en memoria
+        MemoryData.saveData(EmailUsuario, Activity_RegistroUsuario.this);
+
+        // guardando nombre en memoria
+
+            MemoryData.saveName(nombreUsuario,Activity_RegistroUsuario.this);
 
         mAuth.createUserWithEmailAndPassword(EmailUsuario,PasswordUsuario).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
@@ -83,10 +109,17 @@ public class Activity_RegistroUsuario extends AppCompatActivity {
                     startActivity(new Intent(Activity_RegistroUsuario.this,MainActivity.class));
                     Toast.makeText(Activity_RegistroUsuario.this, "Te registraste con Exito! :)", Toast.LENGTH_SHORT).show();
 
+                    Intent intent = new Intent(Activity_RegistroUsuario.this,ChatsActivity.class);
+                    intent.putExtra("correo", EmailUsuario);
+                    intent.putExtra("nombre",nombreUsuario);
+                    startActivity(intent);
+                    finish();
+
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
+
 
                     e.printStackTrace();
                     Log.e("Error", "Firebase Error: " + e.getMessage());

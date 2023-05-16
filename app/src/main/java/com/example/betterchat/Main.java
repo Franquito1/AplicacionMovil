@@ -12,6 +12,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Main extends AppCompatActivity {
 
+
+
     UserFragment firstFragment = new UserFragment();
     ChatsFragment secondFragment = new ChatsFragment();
     ConfigFragment thirdFragment = new ConfigFragment();
